@@ -10,6 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/lib/pq"
 	"github.com/wedding/models"
 	"gopkg.in/gorp.v1"
 )
@@ -46,13 +47,13 @@ func (hc *HomeController) Bless(c *gin.Context) {
 				})
 			} else {
 				c.JSON(201, gin.H{
-					"status":   "OK",
+					"status":   "Fail",
 					"messages": "Có lỗi xảy ra!",
 				})
 			}
 		} else {
 			c.JSON(400, gin.H{
-				"status":   "OK",
+				"status":   "Fail",
 				"messages": "Có lỗi xảy ra!",
 			})
 		}
@@ -67,17 +68,26 @@ func convertDataSource(ds string) (result string) {
 
 func initDB() *gorp.DbMap {
 	var datasource string
-	if os.Getenv("CLEARDB_DATABASE_URL") != "" {
-		datasource = convertDataSource(os.Getenv("CLEARDB_DATABASE_URL"))
+	if os.Getenv("DATABASE_URL") != "" {
+		datasource = os.Getenv("DATABASE_URL")
+		db, err := sql.Open("postgres", datasource)
+		dbmap := &gorp.DbMap{Db: db, Dialect: gorp.PostgresDialect{}}
+		dbmap.AddTableWithName(models.Participant{}, "Participant").SetKeys(true, "Id")
+		dbmap.CreateTablesIfNotExists()
+		if err != nil {
+			log.Fatal(err)
+		}
+		return dbmap
 	} else {
 		datasource = "root:admin123@/wedding"
+		db, err := sql.Open("mysql", datasource)
+		dbmap := &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDB", "UTF8"}}
+		dbmap.AddTableWithName(models.Participant{}, "Participant").SetKeys(true, "Id")
+		dbmap.CreateTablesIfNotExists()
+		if err != nil {
+			log.Fatal(err)
+		}
+		return dbmap
 	}
-	db, err := sql.Open("mysql", datasource)
-	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDB", "UTF8"}}
-	dbmap.AddTableWithName(models.Participant{}, "Participant").SetKeys(true, "Id")
-	dbmap.CreateTablesIfNotExists()
-	if err != nil {
-		log.Fatal(err)
-	}
-	return dbmap
+
 }
