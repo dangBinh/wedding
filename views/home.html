@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ .title }}</title>
+  <!-- Font -->
+  <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Boogaloo|Carter+One|Bubblegum+Sans' rel='stylesheet' type='text/css'>
+  <!-- Style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.css">
+  <link rel="stylesheet" href="/public/css/style.css" />
+  <!-- Javascript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="/public/js/parallax.min.js"></script>
+  <script src="/public/materialize/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.js"></script>
+  <script src="/public/js/jquery.countdown.js"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5432795a0837fc73" async="async"></script>
+  <script src="/public/js/app.js"></script>
+</head>
+<body>
+  <div class="app-container" id="fullpage">
+    <div id="section-1" class="section">
+      <div class="btn btn-view">Xem mặt sau</div>
+      <div id="flip_container">
+        <div class="card z-depth-4 col" id="invitaion-card">
+            <div class="face front">
+              <div class="wedding-owner">
+                <img class="responsive-img" src="/public/image/pattern-top.png" id="pattern-top"/>
+                <p class="col s12 m12"><span>Dang Binh</span> <i class="fa fa-heart"></i> <span>Hong Anh</span></p>
+                <img class="responsive-img" src="/public/image/pattern-bot.png" id="pattern-bot"/>
+              </div>
+              <div class="cute-image-bg row" id="snow">
+                <!-- <div class="col s4" id="wrm"><p>We are</p><p>getting</p><p>married.</p></div> -->
+                <div class="col s12 m4" id="date"><p>December / 30 / 2015</p></div>
+                <div class="col s12 m4"><img class="responsive-img cute-img" src="/public/image/cute.png" /></div>
+                <div class="col s12 m4" id="date"><p>December / 31 / 2015</p></div>
+              </div>
+              <div class="invitation-text">
+                <h5>WEDDING INVITATION</h5>
+                <p>Your prescene is requested at the wedding</p>
+              </div>
+            </div>
+            <div class="face back">
+              <div class="row">
+                <div class="col m12">
+                  <ul id='timeline'>
+                    <li class="work">
+                      <div class="relative">
+                        <label for='work5'>Tiết mục ăn uống nhậu nhẹt - Thời gian 16h00 đến 23h00</label>
+                        <span class='date'>30-12-2015</span>
+                        <span class='circle'></span>
+                      </div>
+                      <div class='content'>
+                       <p>
+                         Các bạn có thể chọn một trong 2 địa điểm sau:<br> + Bên chú rể tại Nhà khách tỉnh Bắc Giang<a href="https://www.google.com/maps/place/Nh%C3%A0+Kh%C3%A1ch+T%E1%BB%89nh+B%E1%BA%AFc+Giang/@21.2786319,106.1976161,17z/data=!3m1!4b1!4m2!3m1!1s0x31356d0b8f11f8c9:0xf5904586876da09a" target="_blank">
+  (Xem bản đồ)</a><br> + Bên nhà cô dâu tại 309, Nguyên Hồng, Thành Phố Bắc Giang <a href="https://www.google.com/maps/place/Nguy%C3%AAn+H%E1%BB%93ng,+Ho%C3%A0ng+V%C4%83n+Th%E1%BB%A5,+tp.+B%E1%BA%AFc+Giang,+B%E1%BA%AFc+Giang,+Vi%E1%BB%87t+Nam/@21.2797066,106.207553,17z/data=!3m1!4b1!4m7!1m4!3m3!1s0x31356da6e2d025ad:0x3cc24693f2b63489!2zTmd1ecOqbiBI4buTbmcsIHRwLiBC4bqvYyBHaWFuZywgQuG6r2MgR2lhbmcsIFZp4buHdCBOYW0!3b1!3m1!1s0x31356da6b52a72b5:0xe4a1a87d9e25b5c9" target="_blank">(Xem bản đồ)</a>
+                        <br>(Sau khi ăn xong bên nhà chủ rể các bạn ăn xong có thể nán lại di chuyển sang nhà cô dâu ăn tiếp)
+                       </p>
+                      </div>
+                    </li>
+                    <li class="work">
+                      <div class="relative">
+                        <label for='work5'>Chú rể tung tăng sang nhà cô dâu - Thời gian 9h00 đến 12h00</label>
+                        <span class='date'>31-12-2015</span>
+                        <span class='circle'></span>
+                      </div>
+                      <div class='content'>
+                       <p>
+                         Bắt đầu tiết mục tương tự như trên.Sau đó chú rể chuẩn bị quần áo mũ mão tiền nong đầy đủ sang nhà cô dâu.
+                       </p>
+                      </div>
+                    </li>
+                    <li class="work">
+                      <div class="relative">
+                        <label for='work5'>Cô dâu lon ton sang nhà chú rể - Thời gian 1h05 đến 2h00</label>
+                        <span class='date'>31-12-2015</span>
+                        <span class='circle'></span>
+                      </div>
+                      <div class='content'>
+                       <p>
+                         Cô dâu mang va li tiền nong mang trả lại chú rể. Trong khí đó các bạn có thể đàm đạo uống trà nghe nhạc.
+                       </p>
+                      </div>
+                    </li>
+                    <li class="work">
+                      <div class="relative">
+                        <label for='work5'>Bế mạc chương trình - Thời gian chưa xác định</label>
+                        <span class='date'>31-12-2015</span>
+                        <span class='circle'></span>
+                      </div>
+                      <div class='content'>
+                       <p>
+                         Liên hệ với chú rể và cô dâu để biết thêm chi tiết.
+                       </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-text">*Tấm thiệp mời trên bàn, thời gian địa điểm rõ ràng. Mong các bạn đển chung vui với cô dâu và chú rể*</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="section-2" class="section">
+      <div class="row" id="about-content">
+        <div class="col m4">
+          <img src="/public/image/co_dau.jpg" alt="" class="responsive-img image-cropper">
+          <h4>Đăng Bình</h4>
+          <h5>Nhà văn</h4>
+          <p>Người nghệ sỹ của những ngôn từ nhưng hiện tại vẫn đang gõ code</p>
+        </div>
+        <div class="col m4" id="about-title">
+          <h1>Về chúng tôi</h1>
+        </div>
+        <div class="col m4">
+          <img src="/public/image/chu_re.jpg" alt="" class="responsive-img image-cropper">
+          <h4>Hồng Anh</h4>
+          <h5>Nhà toán học</h5>
+          <p>Người làm thay đổi thế giới nhưng hiện tại vẫn ngồi tính công nợ và báo cáo thuế</p>
+        </div>
+      </div>
+    </div>
+    <div id="section-3" class="section">
+      <h2>Lời chúc của các bạn là niềm vinh dự của chúng tôi!</h2>
+      <div class="row">
+        <form class="col-centered m12">
+          <div class="row">
+            <div class="input-field">
+              <input placeholder="Họ và Tên" id="name" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field">
+              <input placeholder="Email" id="email" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field">
+              <textarea id="textarea" class="materialize-textarea"></textarea>
+              <label for="textarea">Lời chúc của bạn</label>
+            </div>
+          </div>
+          <button type="button" class="btn">Gửi ngay</button>
+        </form>
+      </div>
+    </div>
+    <div id="section-4" class="section">
+      <div class="row thank">
+        <h4>Chỉ còn lại</h4>
+        <div class="countdown"></div>
+        <p>Tham dự và chung vui cùng chúng tôi! Xin cám ơn!</p>
+      </div>
+      <div class="addthis_sharing_toolbox"></div>
+    </div>
+  </div>
+</body>
+</html>
