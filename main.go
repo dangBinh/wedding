@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/wedding/Godeps/_workspace/src/github.com/gin-gonic/gin"
+	_ "github.com/wedding/Godeps/_workspace/src/github.com/go-sql-driver/mysql"
 	"github.com/wedding/controllers"
 )
 
