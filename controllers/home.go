@@ -2,8 +2,11 @@ package controllers
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
+	"net/url"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -13,8 +16,6 @@ import (
 
 type HomeController struct {
 }
-
-var dbmap = initDB()
 
 // HomeController Constructor
 func NewHomeControlelr() *HomeController {
@@ -29,6 +30,7 @@ func (hc *HomeController) Index(c *gin.Context) {
 }
 
 func (hc *HomeController) Bless(c *gin.Context) {
+	var dbmap = initDB()
 	var user models.Participant
 	c.Bind(&user)
 	name := c.PostForm("name")
@@ -57,8 +59,20 @@ func (hc *HomeController) Bless(c *gin.Context) {
 	}
 }
 
+func convertDataSource(ds string) (result string) {
+	url, _ := url.Parse(ds)
+	result = fmt.Sprintf("%s@tcp(%s:3306)%s", url.User.String(), url.Host, url.Path)
+	return result
+}
+
 func initDB() *gorp.DbMap {
-	db, err := sql.Open("mysql", "root:admin123@/wedding")
+	var datasource string
+	if os.Getenv("CLEARDB_DATABASE_URL") != "" {
+		datasource = convertDataSource(os.Getenv("CLEARDB_DATABASE_URL"))
+	} else {
+		datasource = "root:admin123@/wedding"
+	}
+	db, err := sql.Open("mysql", datasource)
 	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDB", "UTF8"}}
 	dbmap.AddTableWithName(models.Participant{}, "Participant").SetKeys(true, "Id")
 	dbmap.CreateTablesIfNotExists()

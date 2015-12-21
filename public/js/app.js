@@ -59,7 +59,9 @@ $(document).ready(function() {
       method: 'POST',
       success: function(data){
         $("#section-3 .btn").removeClass("disabled");
-        console.log(data);
+        if(data.status === "OK") {
+          $("#section-3 form").trigger("reset");
+        }
       }
     })
   })
