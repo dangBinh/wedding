@@ -1,12 +1,19 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/gin-gonic/gin"
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/wedding/controllers"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
 	r := gin.Default()
 	hc := controllers.NewHomeControlelr()
 	// Static file
@@ -14,5 +21,5 @@ func main() {
 	r.LoadHTMLGlob("views/*")
 	r.RouterGroup.GET("/", hc.Index)
 	r.RouterGroup.POST("/bless", hc.Bless)
-	r.Run(":8000")
+	r.Run(":" + port)
 }
