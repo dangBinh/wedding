@@ -41,6 +41,9 @@ $(document).ready(function() {
     }
   })
   // Section 3
+  $("#section-3").css({
+    "padding-top": "0px"
+  })
   $("#section-3 .btn").on("click", function() {
     var form = $("#section-3 form");
     var name = $("#section-3 #name").val();
